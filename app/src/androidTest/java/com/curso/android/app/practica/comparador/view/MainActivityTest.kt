@@ -30,7 +30,7 @@ class MainActivityTest {
     }
 
     @Test
-    fun mainActivity_compareEqualStrings() {
+    fun mainActivity_comparaTextosIguales() {
         Espresso.onView(
             ViewMatchers.withId(R.id.entrada1)
         ).perform(

@@ -14,13 +14,12 @@ class MainViewModel: ViewModel() {
         Comparador("-", "-", "-")
     )
 
-    fun compareStrings(texto1: String, texto2: String) {
+    fun compararTextos(texto1: String, texto2: String) {
         val comparacion = (texto1 == texto2)
-        print(comparacion)
-        updateComparator(comparacion, texto1, texto2)
+        actualizarComparador(comparacion, texto1, texto2)
     }
 
-    private fun updateComparator(comparacion: Boolean, texto1:String, texto2:String) {
+    private fun actualizarComparador(comparacion: Boolean, texto1:String, texto2:String) {
         viewModelScope.launch {
             if(comparacion) {
                 _comparador.value = Comparador(texto1, texto2,"Los textos son iguales")

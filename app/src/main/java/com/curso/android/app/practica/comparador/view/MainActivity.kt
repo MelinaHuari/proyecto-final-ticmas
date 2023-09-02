@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         binding.botonComparar.setOnClickListener {
             val entradaTexto1 = binding.entrada1.text.toString()
             val entradaTexto2 = binding.entrada2.text.toString()
-            mainViewModel.compareStrings(entradaTexto1, entradaTexto2)
+            mainViewModel.compararTextos(entradaTexto1, entradaTexto2)
         }
     }
 }

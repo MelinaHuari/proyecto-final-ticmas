@@ -45,7 +45,7 @@ class MainViewModelUnitTest {
     @Test
     fun mainViewModel_verificaTextosIguales() = runTest {
         launch {
-            viewModel.compareStrings("texto de ejemplo", "texto de ejemplo")
+            viewModel.compararTextos("texto de ejemplo", "texto de ejemplo")
 
         }
         advanceUntilIdle()
