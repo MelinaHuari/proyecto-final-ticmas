@@ -16,6 +16,7 @@ import org.junit.Test
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
+
 @OptIn(kotlinx.coroutines.ExperimentalCoroutinesApi::class)
 class MainViewModelUnitTest {
 
@@ -26,7 +27,7 @@ class MainViewModelUnitTest {
     private val dispatcher = StandardTestDispatcher()
 
     @Before
-    fun setup() {
+    fun setup(){
         Dispatchers.setMain(dispatcher)
         viewModel = MainViewModel()
     }
@@ -37,40 +38,25 @@ class MainViewModelUnitTest {
     }
 
     @Test
-    fun mainViewModel_CheckInitialValue() = runTest {
-        val value = viewModel.counter.value?.number
-        assertEquals(0, value)
+    fun mainViewModel_verificarValorInicial() = runTest {
+        val comparacion = viewModel.comparador.value?.comparacion
+        val primerCadena = viewModel.comparador.value?.cadena1
+        val segundaCadena = viewModel.comparador.value?.cadena2
+        assertEquals(comparacion, "-")
+        assertEquals(primerCadena, "-")
+        assertEquals(segundaCadena, "-")
     }
 
     @Test
-    fun mainViewModel_TestIncrementValue() = runTest {
+    fun mainViewModel_verificaTextosIguales() = runTest {
         launch {
-            viewModel.incrementCounter()
+            viewModel.compareStrings("texto de ejemplo", "texto de ejemplo")
+
         }
         advanceUntilIdle()
-        val value = viewModel.counter.value?.number
-        assertEquals(1, value)
+
+        val comparacion = viewModel.comparador.value?.comparacion
+        assertEquals(comparacion, "Los textos son iguales")
     }
 
-    @Test
-    fun mainViewModel_TestIncrementValueTwice() = runTest {
-        for (i in 0..1) {
-            launch {
-                viewModel.incrementCounter()
-            }
-            advanceUntilIdle()
-        }
-        val value = viewModel.counter.value?.number
-        assertEquals(2, value)
-    }
-
-    @Test
-    fun mainViewModel_TestDecrementValue() = runTest {
-        launch {
-            viewModel.decrementCounter()
-        }
-        advanceUntilIdle()
-        val value = viewModel.counter.value?.number
-        assertEquals(-1, value)
-    }
 }

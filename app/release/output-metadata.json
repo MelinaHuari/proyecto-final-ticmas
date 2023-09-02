@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.curso.android.app.practica.counter",
+  "applicationId": "com.curso.android.app.practica.comparador",
   "variantName": "release",
   "elements": [
     {

@@ -2,7 +2,6 @@ package com.curso.android.app.practica.counter.view
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.espresso.Espresso
-import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
@@ -31,18 +30,34 @@ class MainActivityTest {
     }
 
     @Test
-    fun mainActivity_incrementCounter() {
+    fun mainActivity_compareEqualStrings() {
         Espresso.onView(
-            ViewMatchers.withId(R.id.increment_button)
+            ViewMatchers.withId(R.id.entrada1)
+        ).perform(
+            ViewActions.typeText("Texto de ejemplo")
+        )
+        Thread.sleep(1000)
+        Espresso.onView(ViewMatchers.isRoot())
+            .perform(ViewActions.pressBack())
+        Thread.sleep(1000)
+        Espresso.onView(
+            ViewMatchers.withId(R.id.entrada2)
+        ).perform(
+            ViewActions.typeText("Texto de ejemplo")
+        )
+        Espresso.onView(ViewMatchers.isRoot())
+            .perform(ViewActions.pressBack())
+        Thread.sleep(1000)
+        Espresso.onView(
+            ViewMatchers.withId(R.id.botonComparar)
         ).perform(
             ViewActions.click()
         )
-
         Espresso.onView(
-            ViewMatchers.withId(R.id.counter)
+            ViewMatchers.withId(R.id.textoComparacion)
         ).check(
             ViewAssertions.matches(
-                ViewMatchers.withText("1")
+                ViewMatchers.withText("Los textos son iguales")
             )
         )
     }
