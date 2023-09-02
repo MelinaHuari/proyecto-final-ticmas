@@ -57,7 +57,7 @@ class MainActivityTest {
             ViewMatchers.withId(R.id.textoComparacion)
         ).check(
             ViewAssertions.matches(
-                ViewMatchers.withText("Los textos son iguales")
+                ViewMatchers.withText("Los textos SÍ son iguales")
             )
         )
     }

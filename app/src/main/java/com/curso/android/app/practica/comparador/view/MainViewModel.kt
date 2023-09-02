@@ -22,9 +22,9 @@ class MainViewModel: ViewModel() {
     private fun actualizarComparador(comparacion: Boolean, texto1:String, texto2:String) {
         viewModelScope.launch {
             if(comparacion) {
-                _comparador.value = Comparador(texto1, texto2,"Los textos son iguales")
+                _comparador.value = Comparador(texto1, texto2,"Los textos SÍ son iguales")
             } else {
-                _comparador.value = Comparador(texto1, texto2,"Los textos son diferentes")
+                _comparador.value = Comparador(texto1, texto2,"Los textos NO son iguales")
             }
         }
     }

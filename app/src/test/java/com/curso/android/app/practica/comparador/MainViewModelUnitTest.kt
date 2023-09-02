@@ -51,7 +51,7 @@ class MainViewModelUnitTest {
         advanceUntilIdle()
 
         val comparacion = viewModel.comparador.value?.comparacion
-        assertEquals(comparacion, "Los textos son iguales")
+        assertEquals(comparacion, "Los textos SÍ son iguales")
     }
 
 }
